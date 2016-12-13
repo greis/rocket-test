@@ -1,4 +1,5 @@
 import Test from './Test';
+import rocket from '../rocket';
 
 class Steps extends Test {
   test() {
@@ -7,7 +8,12 @@ class Steps extends Test {
     return children.reduce((promise, child) => {
       const step = new child.type(child.props, context);
       return promise.then(() => {
-        return step.test();
+        const result = step.test();
+        if (result.$$typeof === Symbol.for('react.element')) {
+          return rocket.test(result);
+        } else {
+          return result;
+        }
       });
     }, Promise.resolve());
   }

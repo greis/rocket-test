@@ -44,3 +44,18 @@ it('waits for async calls', async () => {
     </Steps>
   );
 });
+
+it('allows custom components to return other components', async () => {
+  class CustomAssertion extends Test {
+    test() {
+      return <Assert selector="Text" text={this.props.text} />
+    }
+  }
+
+  await rocket.test(
+    <Steps>
+      <CustomAssertion text="Loading" />
+      <CustomAssertion text="Hello World" />
+    </Steps>
+  );
+});

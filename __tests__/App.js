@@ -45,6 +45,16 @@ it('waits for async calls', async () => {
   );
 });
 
+it('fails test', async () => {
+  await rocket.test(
+    <Steps>
+      <Assert selector="Text" text="Not Loading" />
+    </Steps>
+  ).catch(error => {
+    expect(error.toString()).toContain('Hello World')
+  });
+});
+
 it('allows custom components to return other components', async () => {
   class CustomAssertion extends Test {
     test() {

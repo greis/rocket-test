@@ -32,6 +32,7 @@ class App extends React.Component {
 
 beforeEach(() => {
   rocket.configure({
+    driver: 'enzyme',
     app: <App />
   });
 });

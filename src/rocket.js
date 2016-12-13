@@ -1,18 +1,17 @@
-import { mount } from 'enzyme';
+import drivers from './drivers';
 require('react-native-mock/mock');
 
 const MAX_TIMEOUT = 1000;
 const WAIT_TIME = 100;
 
 const configure = (options) => {
-  this.options = options;
+  this.driver = drivers[options.driver].init(options);
 }
 
 const test = (component) => {
-  const wrapper = mount(this.options.app);
-  const context = { wrapper };
-  const c = new component.type(component.props, context);
-  return c.test();
+  const context = { driver: this.driver };
+  const instance = new component.type(component.props, context);
+  return instance.test();
 }
 
 const waitFor = (expression) => {

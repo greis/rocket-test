@@ -3,10 +3,10 @@ import Test from './Test';
 
 class Assert extends Test {
   test() {
-    const { wrapper } = this.context;
+    const { driver } = this.context;
     const { text, selector } = this.props;
     return rocket.waitFor(() => {
-      expect(wrapper.find(selector).text()).toEqual(text)
+      expect(driver.find(selector).text()).toEqual(text)
     });
   }
 }

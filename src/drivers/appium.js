@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import wd from 'yiewd';
 
 const init = (options) => {
   return new Driver(options);
@@ -7,21 +7,24 @@ const init = (options) => {
 class Driver {
   constructor(options) {
     this.options = options;
+    this.driver = wd.remote(
+      options.host,
+      options.port,
+      options.username,
+      options.password
+    );
   }
 
   startSession() {
-    return new Promise(resolve => {
-      this.wrapper = mount(this.options.app);
-      resolve();
-    });
+    return this.driver.init(this.options.capabilities);
   }
 
   endSession() {
-    this.wrapper.unmount();
+    this.driver.quit();
   }
 
   findByTestID(id) {
-    return new Element(this.wrapper.find({testID: id}));
+    return new Element(this.driver.elementByName(id));
   }
 }
 
@@ -31,9 +34,7 @@ class Element {
   }
 
   text() {
-    return new Promise(resolve => {
-      resolve(this.element.text());
-    })
+    return this.element.text();
   }
 }
 

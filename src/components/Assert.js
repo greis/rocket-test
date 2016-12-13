@@ -4,10 +4,7 @@ import Test from './Test';
 class Assert extends Test {
   test() {
     const { driver } = this.context;
-    const { text, selector } = this.props;
-    return rocket.waitFor(() => {
-      expect(driver.find(selector).text()).toEqual(text)
-    });
+    return driver.assert(this.props);
   }
 }
 

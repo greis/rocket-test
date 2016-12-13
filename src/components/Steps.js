@@ -10,7 +10,7 @@ class Steps extends Test {
       return promise.then(() => {
         const result = step.test();
         if (result.$$typeof === Symbol.for('react.element')) {
-          return rocket.test(result);
+          return rocket.testComponent(result);
         } else {
           return result;
         }

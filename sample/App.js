@@ -7,7 +7,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <Text testID="hello">
+    return <Text testID="message">
       {this.state.message}
     </Text>
   }

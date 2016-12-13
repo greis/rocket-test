@@ -1,7 +1,4 @@
-import { Text } from 'react-native';
 import React from 'react';
-
-jest.mock('Text', () => 'Text');
 
 import {
   rocket,
@@ -10,25 +7,7 @@ import {
   Assert,
 } from '../src';
 
-class App extends React.Component {
-  state = {
-    message: 'Loading',
-  }
-
-  render() {
-    return <Text>
-      {this.state.message}
-    </Text>
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        message: 'Hello World'
-      });
-    }, 100);
-  }
-}
+import App from '../sample/App';
 
 beforeEach(() => {
   rocket.configure({
@@ -40,8 +19,8 @@ beforeEach(() => {
 it('waits for async calls', async () => {
   await rocket.test(
     <Steps>
-      <Assert selector="Text" text="Loading" />
-      <Assert selector="Text" text="Hello World" />
+      <Assert testID="message" text="Loading" />
+      <Assert testID="message" text="Hello World" />
     </Steps>
   );
 });
@@ -49,7 +28,7 @@ it('waits for async calls', async () => {
 it('fails test', async () => {
   await rocket.test(
     <Steps>
-      <Assert selector="Text" text="Not Loading" />
+      <Assert testID="message" text="Not Loading" />
     </Steps>
   ).catch(error => {
     expect(error.toString()).toContain('Hello World')
@@ -59,7 +38,7 @@ it('fails test', async () => {
 it('allows custom components to return other components', async () => {
   class CustomAssertion extends Test {
     test() {
-      return <Assert selector="Text" text={this.props.text} />
+      return <Assert testID="message" text={this.props.text} />
     }
   }
 

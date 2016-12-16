@@ -1,4 +1,3 @@
-import rocket from '../rocket';
 import Test from './Test';
 
 class Assert extends Test {

@@ -36,6 +36,10 @@ class Element {
   text() {
     return this.element.text();
   }
+
+  press() {
+    return this.element.click();
+  }
 }
 
 export default {

@@ -1,5 +1,12 @@
 import { mount } from 'enzyme';
 
+import ReactInstrumentation from 'react-dom/lib/ReactInstrumentation'
+import ReactDOMUnknownPropertyHook from 'react-dom/lib/ReactDOMUnknownPropertyHook';
+ReactInstrumentation.debugTool.removeHook(ReactDOMUnknownPropertyHook);
+
+import mockComponent from 'react-native/jest/mockComponent'
+jest.mock('TouchableOpacity', () => mockComponent('TouchableOpacity'));
+
 const init = (options) => {
   return new Driver(options);
 };
@@ -33,6 +40,16 @@ class Element {
   text() {
     return new Promise(resolve => {
       resolve(this.element.text());
+    })
+  }
+
+  press() {
+    return new Promise((resolve, reject) => {
+      if (this.element.props().onPress) {
+        resolve(this.element.props().onPress());
+      } else {
+        resolve();
+      }
     })
   }
 }

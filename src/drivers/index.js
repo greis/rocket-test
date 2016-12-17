@@ -36,10 +36,18 @@ class DriverDelegator {
 
   assert(options) {
     return waitFor(() => {
-      return this.driver.findByTestID(options.testID).text().then(actual => {
+      return this.find(options).text().then(actual => {
         expect(actual).toEqual(options.text)
       });
     });
+  }
+
+  press(options) {
+    return this.find(options).press();
+  }
+
+  find(options) {
+    return this.driver.findByTestID(options.testID);
   }
 }
 

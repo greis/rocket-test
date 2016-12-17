@@ -3,6 +3,7 @@ import React from 'react';
 import rocket, {
   Steps,
   Assert,
+  Press,
 } from '../src';
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 40000;
@@ -38,4 +39,14 @@ it('fails test', async () => {
   ).catch(error => {
     expect(error.toString()).toContain('Hello World')
   });
+});
+
+it('allows press event', async () => {
+  await rocket.test(
+    <Steps>
+      <Assert testID="message" text="Hello World" />
+      <Press testID="button" />
+      <Assert testID="message" text="Clicked!" />
+    </Steps>
+  );
 });

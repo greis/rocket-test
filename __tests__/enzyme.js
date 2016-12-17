@@ -4,6 +4,7 @@ import rocket, {
   Component,
   Steps,
   Assert,
+  Press,
 } from '../src';
 
 import App from '../sample/App';
@@ -45,6 +46,15 @@ it('allows custom components to return other components', async () => {
     <Steps>
       <CustomAssertion text="Loading" />
       <CustomAssertion text="Hello World" />
+    </Steps>
+  );
+});
+
+it('allows press event', async () => {
+  await rocket.test(
+    <Steps>
+      <Press testID="button" />
+      <Assert testID="message" text="Clicked!" />
     </Steps>
   );
 });

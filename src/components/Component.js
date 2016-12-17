@@ -1,8 +1,8 @@
-class Test {
+class Component {
   constructor(props, context) {
     this.props = props;
     this.context = context;
   }
 }
 
-export default Test;
+export default Component;

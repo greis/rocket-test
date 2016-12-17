@@ -1,7 +1,6 @@
 import React from 'react';
 
-import {
-  rocket,
+import rocket, {
   Steps,
   Assert,
 } from '../src';

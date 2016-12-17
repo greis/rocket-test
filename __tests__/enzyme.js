@@ -1,8 +1,7 @@
 import React from 'react';
 
-import {
-  rocket,
-  Test,
+import rocket, {
+  Component,
   Steps,
   Assert,
 } from '../src';
@@ -36,7 +35,7 @@ it('fails test', async () => {
 });
 
 it('allows custom components to return other components', async () => {
-  class CustomAssertion extends Test {
+  class CustomAssertion extends Component {
     test() {
       return <Assert testID="message" text={this.props.text} />
     }

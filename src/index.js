@@ -1,11 +1,12 @@
-import Test from './components/Test';
+import Component from './components/Component';
 import Steps from './components/Steps';
 import Assert from './components/Assert';
 import rocket from './rocket';
 
 export {
-  rocket,
-  Test,
+  Component,
   Steps,
   Assert,
 }
+
+export default rocket;

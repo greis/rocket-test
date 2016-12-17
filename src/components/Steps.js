@@ -1,7 +1,7 @@
-import Test from './Test';
+import Component from './Component';
 import rocket from '../rocket';
 
-class Steps extends Test {
+class Steps extends Component {
   test() {
     const { props, context } = this;
     const children = Array.isArray(props.children) ? props.children : [props.children];

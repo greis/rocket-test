@@ -1,6 +1,6 @@
-import Test from './Test';
+import Component from './Component';
 
-class Assert extends Test {
+class Assert extends Component {
   test() {
     const { driver } = this.context;
     return driver.assert(this.props);

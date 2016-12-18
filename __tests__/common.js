@@ -5,7 +5,7 @@ import rocket, {
   Assert,
   Press,
   Log,
-} from '../src';
+} from '../index';
 
 it('passes', () => {});
 

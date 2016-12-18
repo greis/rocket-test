@@ -1,4 +1,4 @@
-import rocket from '../src';
+import rocket from '../index';
 import commonTests from './common';
 
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 40000;

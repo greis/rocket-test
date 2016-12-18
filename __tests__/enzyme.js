@@ -5,7 +5,7 @@ import rocket, {
   Component,
   Steps,
   Assert,
-} from '../src';
+} from '../index';
 
 beforeEach(() => {
   rocket.configure({

@@ -1,5 +1,6 @@
 import enzyme from './enzyme';
 import appium from './appium';
+import renderer from './renderer';
 
 const MAX_TIMEOUT = 1000;
 const WAIT_TIME = 100;
@@ -57,7 +58,7 @@ class DriverDelegator {
   }
 }
 
-const drivers = { enzyme, appium };
+const drivers = { enzyme, appium, renderer };
 const init = (options) => {
   return new DriverDelegator(
     drivers[options.driver].init(options)

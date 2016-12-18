@@ -1,5 +1,4 @@
 import drivers from './drivers';
-require('react-native-mock/mock');
 
 const configure = (options) => {
   this.driver = drivers.init(options);

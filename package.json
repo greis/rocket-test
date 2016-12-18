@@ -9,8 +9,9 @@
   "dependencies": {
     "enzyme": "^2.6.0",
     "react": "15.4.1",
+    "react-addons-test-utils": "^15.4.1",
+    "react-dom": "^15.4.1",
     "react-native": "0.39.2",
-    "react-native-mock": "^0.2.9",
     "yiewd": "^0.6.0"
   },
   "devDependencies": {

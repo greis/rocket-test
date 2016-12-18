@@ -1,11 +1,5 @@
 import { mount } from 'enzyme';
-
-import ReactInstrumentation from 'react-dom/lib/ReactInstrumentation'
-import ReactDOMUnknownPropertyHook from 'react-dom/lib/ReactDOMUnknownPropertyHook';
-ReactInstrumentation.debugTool.removeHook(ReactDOMUnknownPropertyHook);
-
-import mockComponent from 'react-native/jest/mockComponent'
-jest.mock('TouchableOpacity', () => mockComponent('TouchableOpacity'));
+require('./mocks');
 
 const init = (options) => {
   return new Driver(options);

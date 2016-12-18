@@ -17,6 +17,12 @@ class Driver {
     });
   }
 
+  source() {
+    return new Promise(resolve => {
+      resolve(this.wrapper.debug());
+    });
+  }
+
   endSession() {
     this.wrapper.unmount();
   }

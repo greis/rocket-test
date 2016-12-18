@@ -23,6 +23,10 @@ class Driver {
     this.driver.quit();
   }
 
+  source() {
+    return this.driver.source();
+  }
+
   findByTestID(id) {
     return new Element(this.driver.elementByName(id));
   }

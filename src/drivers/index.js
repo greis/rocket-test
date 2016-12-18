@@ -34,6 +34,12 @@ class DriverDelegator {
     return this.driver.endSession();
   }
 
+  log() {
+    return this.driver.source().then(source => {
+      console.log(source)
+    });
+  }
+
   assert(options) {
     return waitFor(() => {
       return this.find(options).text().then(actual => {

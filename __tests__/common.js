@@ -4,6 +4,7 @@ import rocket, {
   Steps,
   Assert,
   Press,
+  Log,
 } from '../src';
 
 it('passes', () => {});
@@ -33,6 +34,14 @@ export default function commonTests() {
         <Assert testID="message" text="Hello World" />
         <Press testID="button" />
         <Assert testID="message" text="Clicked!" />
+      </Steps>
+    );
+  });
+
+  it.skip('logs the source', async () => {
+    await rocket.test(
+      <Steps>
+        <Log />
       </Steps>
     );
   });

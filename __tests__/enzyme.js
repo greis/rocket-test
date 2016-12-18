@@ -1,13 +1,11 @@
 import React from 'react';
-
+import commonTests from './common';
+import App from '../sample/App';
 import rocket, {
   Component,
   Steps,
   Assert,
-  Press,
 } from '../src';
-
-import App from '../sample/App';
 
 beforeEach(() => {
   rocket.configure({
@@ -16,24 +14,7 @@ beforeEach(() => {
   });
 });
 
-it('waits for async calls', async () => {
-  await rocket.test(
-    <Steps>
-      <Assert testID="message" text="Loading" />
-      <Assert testID="message" text="Hello World" />
-    </Steps>
-  );
-});
-
-it('fails test', async () => {
-  await rocket.test(
-    <Steps>
-      <Assert testID="message" text="Not Loading" />
-    </Steps>
-  ).catch(error => {
-    expect(error.toString()).toContain('Hello World')
-  });
-});
+commonTests();
 
 it('allows custom components to return other components', async () => {
   class CustomAssertion extends Component {
@@ -46,15 +27,6 @@ it('allows custom components to return other components', async () => {
     <Steps>
       <CustomAssertion text="Loading" />
       <CustomAssertion text="Hello World" />
-    </Steps>
-  );
-});
-
-it('allows press event', async () => {
-  await rocket.test(
-    <Steps>
-      <Press testID="button" />
-      <Assert testID="message" text="Clicked!" />
     </Steps>
   );
 });

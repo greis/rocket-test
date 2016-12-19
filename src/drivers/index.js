@@ -1,4 +1,3 @@
-import enzyme from './enzyme';
 import appium from './appium';
 import renderer from './renderer';
 
@@ -58,7 +57,7 @@ class DriverDelegator {
   }
 }
 
-const drivers = { enzyme, appium, renderer };
+const drivers = { appium, renderer };
 const init = (options) => {
   return new DriverDelegator(
     drivers[options.driver].init(options)

@@ -7,10 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "enzyme": "^2.6.0",
     "react": "15.4.1",
-    "react-addons-test-utils": "^15.4.1",
-    "react-dom": "^15.4.1",
     "react-native": "0.39.2",
     "react-test-renderer": "^15.4.1",
     "yiewd": "^0.6.0"
@@ -24,7 +21,6 @@
     "jest": "17.0.3"
   },
   "jest": {
-    "preset": "react-native",
-    "testEnvironment": "jsdom"
+    "preset": "react-native"
   }
 }

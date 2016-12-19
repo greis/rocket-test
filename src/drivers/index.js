@@ -1,6 +1,3 @@
-import appium from './appium';
-import renderer from './renderer';
-
 const MAX_TIMEOUT = 1000;
 const WAIT_TIME = 100;
 
@@ -57,10 +54,15 @@ class DriverDelegator {
   }
 }
 
-const drivers = { appium, renderer };
+const drivers = {
+  renderer: './renderer',
+  appium: './appium'
+};
 const init = (options) => {
+  const driverFile = drivers[options.driver] || drivers['renderer']
+  const driver = require(driverFile).default;
   return new DriverDelegator(
-    drivers[options.driver].init(options)
+    driver.init(options)
   );
 }
 

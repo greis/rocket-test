@@ -6,11 +6,9 @@
     "start": "node node_modules/react-native/local-cli/cli.js start --root sample",
     "test": "jest"
   },
-  "dependencies": {
-    "react": "15.4.1",
-    "react-native": "0.39.2",
-    "react-test-renderer": "^15.4.1",
-    "yiewd": "^0.6.0"
+  "peerDependencies": {
+    "react-test-renderer": "^15.4.x",
+    "yiewd": "^0.6.x"
   },
   "devDependencies": {
     "babel-jest": "17.0.2",
@@ -18,7 +16,11 @@
     "eslint": "^3.12.2",
     "eslint-plugin-react": "^6.8.0",
     "eslint-plugin-react-native": "^2.2.1",
-    "jest": "17.0.3"
+    "jest": "17.0.3",
+    "react": "15.4.1",
+    "react-native": "0.39.2",
+    "react-test-renderer": "^15.4.1",
+    "yiewd": "^0.6.0"
   },
   "jest": {
     "preset": "react-native"

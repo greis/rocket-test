@@ -1,10 +1,5 @@
-import Component from './Component';
-
-class Assert extends Component {
-  test() {
-    const { driver } = this.context;
-    return driver.assert(this.props);
-  }
+const Assert = ({props, driver}) => {
+  return driver.assert(props);
 }
 
 export default Assert;

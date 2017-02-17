@@ -1,10 +1,5 @@
-import Component from './Component';
-
-class Press extends Component {
-  test() {
-    const { driver } = this.context;
-    return driver.press(this.props);
-  }
+const Press = ({props, driver}) => {
+  return driver.press(props);
 }
 
 export default Press;

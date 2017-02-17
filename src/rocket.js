@@ -11,9 +11,7 @@ const test = (component) => {
 }
 
 const testComponent = (component) => {
-  const context = { driver: this.driver };
-  const instance = new component.type(component.props, context);
-  return instance.test();
+  return component.type({props: component.props, driver: this.driver});
 }
 
 export default {

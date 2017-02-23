@@ -1,7 +1,7 @@
+const mockComponent = require('react-native/jest/mockComponent');
+
 [
-  'View',
   'TouchableOpacity',
-  'Text'
 ].forEach(component => {
-  jest.mock(component, () => component);
+  jest.mock(component, () => mockComponent(component));
 });
